@@ -223,14 +223,18 @@ class database:
 
     def getUserEvents(self, user_id, email):
         return self.query("""
-            SELECT e.event_id, e.title, e.start_date, e.end_date
-            FROM events e
-            LEFT JOIN event_users   eu ON eu.event_id = e.event_id AND eu.user_id = %s
+            SELECT  e.event_id,
+                    e.title,
+                    e.start_date,
+                    e.end_date,
+                    u.email AS creator_email          -- <-- bring creator back
+            FROM events            e
+            JOIN users             u  ON u.user_id = e.created_by
+            LEFT JOIN event_users  eu ON eu.event_id = e.event_id AND eu.user_id = %s
             LEFT JOIN event_invites ei ON ei.event_id = e.event_id AND ei.email   = %s
             WHERE eu.user_id IS NOT NULL OR ei.email IS NOT NULL
             GROUP BY e.event_id
         """, (user_id, email))
-
 
 
     def getEventMeta(self, event_id):
