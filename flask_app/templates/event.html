@@ -1,0 +1,50 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/event.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+<script>
+    /*  Expose event meta to JS  */
+    const EVENT_META = {
+      event_id:      {{ event.event_id }},
+      title:         "{{ event.title|escape }}",
+      start_date:    "{{ event.start_date }}",     // YYYY-MM-DD
+      end_date:      "{{ event.end_date }}",
+      day_start:     "{{ event.day_start_time }}", // HH:MM:SS
+      day_end:       "{{ event.day_end_time }}",
+      current_user:  {{ current_user_id }}
+    };
+</script>
+<script src="{{ url_for('static', filename='main/js/event.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="event-header">
+  <h1 class="event-title">{{ event.title }}</h1>
+  <p class="event-dates">{{ event.start_date }} → {{ event.end_date }}</p>
+</div>
+
+<!-- Mode selector -->
+<div class="toolbar">
+  <label for="mode">Set availability as:</label>
+  <select id="mode">
+    <option value="available">Available</option>
+    <option value="maybe">Maybe</option>
+    <option value="unavailable">Unavailable</option>
+  </select>
+</div>
+
+<!-- Best-time banner -->
+<div id="best-time" class="best-time hidden">
+  Best time to meet: <span id="best-time-slot"></span>
+</div>
+
+<!-- Grid container -->
+<div id="grid-wrapper"></div>
+
+<a href="{{ url_for('create_event_page') }}" class="back-btn">← Back to Create Event</a>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+/* ========== Base ========== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* ========== Layout ========== */
+.main {
+    flex: 1;
+    padding: 2rem;
+}
+
+/* ========== Header Banner ========== */
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #226455;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.user-email {
+    text-align: left;
+}
+
+.logout {
+    text-align: right;
+}
+
+.logout-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #226455;
+    background-color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #004d3f;
+    color: #fff;
+}
+
+/* ========== Footer ========== */
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #f1f1f1;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #ccc;
+}

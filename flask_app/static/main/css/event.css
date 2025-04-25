@@ -1,0 +1,47 @@
+.event-header            { text-align:center; margin-top:1rem; }
+.event-title             { margin:0; }
+.event-dates             { color:#555; }
+
+.toolbar                 { text-align:center; margin:1.5rem 0; }
+
+#grid-wrapper            { overflow-x:auto; }
+.grid-table              { border-collapse:collapse; margin:0 auto; }
+.grid-table th,
+.grid-table td           { border:1px solid #ddd; padding:6px; text-align:center; }
+
+.time-col                { width:90px; background:#f5f5f5; font-weight:600; }
+.available               { background:#a8e6a3; }      /* light green */
+.maybe                   { background:#fff4a3; }       /* yellow */
+.unavailable             { background:#f0f0f0; }       /* light grey */
+
+.cell.dragging           { outline:2px dashed #333; }
+
+.best-time               { text-align:center; font-weight:600; margin-bottom:1rem; }
+.hidden                  { display:none; }
+
+/* group–availability intensity ------------------------------------- */
+td.g-1            { background: #b9f5b9; }   /* 1 user available  – light  */
+td.g-2            { background: #66dd66; }   /* 2 users available – medium */
+td.g-3,  /* 3-plus */                       
+td.g-3.g-2.g-1    { background: #2eaf2e; }   /* 3+ users          – dark   */
+
+td.m   { background:#fff6b3; }   /*   at least one “Maybe”, but zero “Available” */
+td.u   { background:#f2f2f2; }   /*   only “Unavailable” responses               */
+
+/* back to createevent button */
+.back-btn {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    background: #e0e0e0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .back-btn:hover {
+    background: #d5d5d5;
+  }
+  

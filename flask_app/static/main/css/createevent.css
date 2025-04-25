@@ -1,0 +1,112 @@
+/* Form Basics */
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Email Entry */
+  .emails {
+    margin-top: 0.5rem;
+  }
+  
+  .email-entry {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .email-entry input {
+    flex: 1;
+  }
+  
+  .add-email-btn,
+  .remove-email-btn,
+  .submit-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Add subtle hover effect for buttons */
+  .add-email-btn:hover,
+  .remove-email-btn:hover,
+  .submit-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Layout ----------------------------------------------------------- */
+  .ce-wrapper {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem 1rem;
+    flex-wrap: nowrap;
+  }
+  
+  .ce-left {
+    flex: 1 1 55%;
+  }
+  
+  .ce-right {
+    flex: 1 1 45%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .ce-right h2 {
+    margin-top: 0;
+  }
+  
+  .ce-right .join-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .ce-right .join-btn:hover {
+    background: #155ec2;
+  }
+  
+  @media (max-width: 768px) {
+    .ce-wrapper {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+  

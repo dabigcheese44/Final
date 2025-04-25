@@ -1,0 +1,76 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/createevent.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='main/js/createevent.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="ce-wrapper">
+
+  <!-- ───── left column – create-event form (unchanged) ───── -->
+  <section class="ce-left">
+    <h1>Create a New Event</h1>
+
+    <form id="create-event-form">
+      <!-- Event title -->
+      <div class="form-group">
+        <label for="title">Event title</label>
+        <input id="title" name="title" type="text" required
+               placeholder="Project kickoff meeting">
+      </div>
+
+      <!-- Date range -->
+      <div class="form-group">
+        <label for="start_date">Start date</label>
+        <input id="start_date" name="start_date" type="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="end_date">End date</label>
+        <input id="end_date" name="end_date" type="date" required>
+      </div>
+
+      <!-- Daily time range -->
+      <div class="form-group">
+        <label for="day_start_time">Daily start time</label>
+        <input id="day_start_time" name="day_start_time"
+               type="time" value="08:00" required>
+      </div>
+
+      <div class="form-group">
+        <label for="day_end_time">Daily end time</label>
+        <input id="day_end_time" name="day_end_time"
+               type="time" value="18:00" required>
+      </div>
+
+      <!-- Invitees -->
+      <div class="form-group">
+        <label>Invitee emails</label>
+        <div id="emails-container" class="emails"></div>
+        <button type="button" id="add-email" class="add-email-btn">+ Add email</button>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Create event</button>
+    </form>
+  </section>
+
+  <!-- ───── right column – join-event button ───── -->
+  <section class="ce-right">
+    <h2>Join an Existing Event</h2>
+    <p class="ce-desc">
+      View the events you’ve been invited to and add your availability.
+    </p>
+
+    <a href="{{ url_for('join_event_page') }}" class="join-btn">
+      Join Existing Event
+    </a>
+  </section>
+
+</div>
+{% endblock %}
+

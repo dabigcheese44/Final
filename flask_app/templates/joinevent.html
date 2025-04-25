@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/joinevent.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ url_for('static', filename='main/js/joinevent.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<h1>Your Invitations</h1>
+
+{% if events %}
+  <ul id="event-list" class="event-list">
+    {% for e in events %}
+      <li class="event-item"
+          data-id="{{ e.event_id }}">
+        <div class="title">{{ e.title }}</div>
+        <div class="meta">
+          {{ e.start_date }} → {{ e.end_date }}<br>
+          Created by {{ e.creator_email }}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="empty-msg">You haven’t been invited to any events yet.</p>
+{% endif %}
+<a href="{{ url_for('create_event_page') }}" class="back-btn">← Back to Create Event</a>
+{% endblock %}

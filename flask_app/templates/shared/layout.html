@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christopher Kocher's Final Exam</title>
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/layout.css') }}">
+
+  {% block extracss %}{% endblock %}
+</head>
+
+<body>
+  {% if user_email %}
+  <header class="banner">
+    <div class="user-email">
+      Signed in as {{ user_email }}
+    </div>
+    <div class="logout">
+      <a href="{{ url_for('logout') }}" class="logout-button">Logout here</a>
+    </div>
+  </header>
+  {% endif %}
+
+  <main class="main">
+    {% block maincontent %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p>© 2025 Christopher Kocher</p>
+  </footer>
+
+  {% block extrajs %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="login stylesheet" href="{{ url_for('static', filename='main/css/login.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ url_for('static', filename='main/js/login.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="login-container">
+    <h1 class="login-heading">Sign Up</h1>
+
+    <form id="login-form">
+        <label for="email" class="login-label">Email:</label>
+        <input type="email" id="email" name="email" class="login-input" required title="Enter a valid email address.">
+
+        <label for="password" class="login-label">Password:</label>
+        <input type="password" id="password" name="password" class="login-input" required title="Enter a strong password.">
+
+        <button class="login-button" type="submit">Log In</button>
+    </form>
+
+    <!-- Placeholder for error messages -->
+    <div id="error-message" class="login-error"></div>
+
+    <p id="failed-attempts" class="login-counter">Failed Attempts: <span id="attempt-count">0</span></p>
+
+</div>
+{% endblock %}
